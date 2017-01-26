@@ -63,14 +63,17 @@ why not *remember* that I rewrote it and warn me if I try?).
 ## Other People's Thoughts
 
 I am definitely not the first person to express the idea that the ideal VCS has
-not yet been written. Here's one such expression, though I know I have seen
-several others (TODO Find some of those others):
+not yet been written. Here are a few such expressions:
 
 http://www.chriskrycho.com/2014/next-gen-vcs.html
+
+http://www.scopelift.co/blog/life-after-git
 
 This chat between ESR and the author of monotone was interesting:
 http://www.catb.org/esr/writings/version-control/version-control.html#graydon
 
+Similarly, this Reddit thread has a few interesting comments in it:
+https://www.reddit.com/r/programming/comments/2xxb17/git_is_actually_ok_for_some_binaries/
 
 ## VCSes I Have Used
 
