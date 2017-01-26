@@ -20,8 +20,8 @@ discovering amazing new tools.
 It treats commits as snapshots of the project. Most VCSes do that now, but ones
 that version per-file (like CVS) are worthless for examining past project states.
 
-It makes basic branching easy. I did not understand branches until I used Git,
-and now I can hardly work without them.
+It makes basic branching and merging easy. I did not understand branches until
+I used Git, and now I can hardly work without them.
 
 Since you can do everything without the server after a clone (and in a very
 real sense there isn't a server), version control work becomes a fast, offline
