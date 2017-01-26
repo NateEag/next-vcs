@@ -65,6 +65,17 @@ few readings of the rebase manpage to get it when I first learned about it),
 and unsafe (instead of documenting that you shouldn't rewrite pushed history,
 why not *remember* that I rewrote it and warn me if I try?).
 
+It does not have any concept of 'archiving' branches; after merging, you're
+expected to delete them, thereby losing useful historical information (if you
+don't want to be pestered by seeing that branch in the UI all the time). I hear
+Mercurial's data structures handle this differently, and in a way some people
+prefer.
+
+The same is true of tags - although there are mechanisms to only see tags
+matching a certain pattern, there are no defaults in place for that, so you
+drown in noise if you don't know how not to.
+
+
 
 ## Other People's Thoughts
 
