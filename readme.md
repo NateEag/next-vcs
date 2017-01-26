@@ -3,15 +3,21 @@
 As a programmer, version control is a fundamental part of how I approach my
 daily work.
 
-Git is my current default choice for the many things it gets right, but it has
-many superficial flaws and some fundamental ones.
+Git is my current default choice for the many things it gets right, but I
+believe it has many superficial flaws (which could be solved with a little
+effort) and some fundamental decisions which (which by definition would be
+much harder to fix).
 
 It is my belief that a significantly better version control system is possible.
 If the one I want is out there, I haven't found it so far.
 
+I'm particularly curious as to whether a design is possible that can handle
+large and unmergeable files better than git does, while retaining the many
+things git does wonderfully with source code.
+
 I would like, therefore, to think about what such a VCS might look like.
 
-If you know of one that meets my criteria, *please* let me know. I love
+If you know of one that sounds like a good fit, *please* let me know. I love
 discovering amazing new tools.
 
 
