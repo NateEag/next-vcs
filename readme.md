@@ -86,6 +86,10 @@ http://www.chriskrycho.com/2014/next-gen-vcs.html
 
 http://www.scopelift.co/blog/life-after-git
 
+A lovely summary of what Git's missing for enterprise work, courtesy of someone
+at Perforce:
+https://www.perforce.com/blog/140211/how-git-could-grow-enterprise-scm-system
+
 This chat between ESR and the author of monotone was interesting:
 http://www.catb.org/esr/writings/version-control/version-control.html#graydon
 
