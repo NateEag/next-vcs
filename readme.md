@@ -128,6 +128,17 @@ undo histories make it hard to find the last point you wanted to be at. Just
 namespaced tags for doing that?
 
 
+## POC This On Top Of Git?
+
+Starting to think these ideas, once better defined, could be proofed out with
+git annex + bup for big binaries, gittorrent, some clever aliasing, actually
+writing code when it can't be avoided, and a buttload of hooks, perhaps
+managed by my
+unfinished [githooks package system](https://github.com/NateEag/githooks.d).
+
+Could be fun.
+
+
 ## Other People's Thoughts
 
 I am definitely not the first person to express the idea that the ideal VCS has
