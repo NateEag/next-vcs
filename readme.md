@@ -75,6 +75,12 @@ The same is true of tags - although there are mechanisms to only see tags
 matching a certain pattern, there are no defaults in place for that, so you
 drown in noise if you don't know how not to.
 
+It does not provide file locking. Yes, file locking is stupid if your format is
+merge-friendly and diffable, but if it is not, about the best thing you can do
+is say "warning; I'm working on this." Some hooks and an agreed-upon central
+locking service would let you implement this - 'locked' files can just be
+marked read-only in your working copy. Obviously rigorous locking is not
+compatible with
 
 
 ## Other People's Thoughts
