@@ -87,6 +87,21 @@ actually want - if you know someone left for the day and just locked things by
 accident, you can leave a sticky note on their desk and ignore the lock.
 
 
+## Git-Annex For Large Files
+
+If you could make git-annex work transparently with the regular git commands,
+and use bup as your annex backend store, you could be in a pretty good place
+for dealing with large files. I'd have to actually try it to know if it's at
+all true.
+
+Unsurprisingly, I'm not the only one who's thought about this - the git-annex
+maintainers are trying to adapt smudge and clean filters to do this job. It's
+not clear to me if it's actually working yet, but it appears to be an area of
+active research:
+
+https://git-annex.branchable.com/todo/smudge/
+
+
 ## BitTorrent As Transport
 
 So, you have a distributed VCS. Wouldn't it be nice if you could use BitTorrent
@@ -137,6 +152,8 @@ managed by my
 unfinished [githooks package system](https://github.com/NateEag/githooks.d).
 
 Could be fun.
+
+...or complete madness. You decide.
 
 
 ## Other People's Thoughts
