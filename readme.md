@@ -77,10 +77,31 @@ drown in noise if you don't know how not to.
 
 It does not provide file locking. Yes, file locking is stupid if your format is
 merge-friendly and diffable, but if it is not, about the best thing you can do
-is say "warning; I'm working on this." Some hooks and an agreed-upon central
-locking service would let you implement this - 'locked' files can just be
-marked read-only in your working copy. Obviously rigorous locking is not
-compatible with
+is say "warning; I'm working on this." Some hooks for interactions with remotes
+and an agreed-upon central locking service would let you implement this -
+'locked' files can just be marked read-only in your working copy. Obviously
+true locking is inherently incompatible with being distributed, but all we
+really want to do here is let people know 'hey, someone else is working on
+this.' Furthermore, distributed VCSes would offer the locking mechanisms you
+actually want - if you know someone left for the day and just locked things by
+accident, you can leave a sticky note on their desk and ignore the lock.
+
+
+## BitTorrent As Transport
+
+So, you have a distributed VCS. Wouldn't it be nice if you could use BitTorrent
+(or similar) as a transport?
+
+Your 'central' server could act as the basic tracker, but for actually
+fetching objects, just let all the clients currently on the network feed each
+other. Lot of design work to hash out, but the core concept is interesting, I
+think.
+
+As with so many cool ideas, someone built this a long time ago:
+https://github.com/cjb/GitTorrent
+
+His spin isn't quite the one I'm thinking of, but I'd guess he's done all the
+hard work to achieve what I would like.
 
 
 ## Other People's Thoughts
