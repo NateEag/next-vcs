@@ -165,6 +165,15 @@ http://www.chriskrycho.com/2014/next-gen-vcs.html
 
 http://www.scopelift.co/blog/life-after-git
 
+https://bitquabit.com/post/unorthodocs-abandon-your-dvcs-and-return-to-sanity/
+
+https://blogs.janestreet.com/centralizing-distributed-version-control-revisited/
+
+This HN discussion of GitHub's LFS announcement was mildly informative (mostly
+it was just people yelling about "why didn't you just use git-annex?"). I'm
+curious to learn what a 'Merkle tree' is, which someone mentioned in
+association with rolling hashes for storing large binary files.
+
 A lovely summary of what Git's missing for enterprise work, courtesy of someone
 at Perforce:
 https://www.perforce.com/blog/140211/how-git-could-grow-enterprise-scm-system
