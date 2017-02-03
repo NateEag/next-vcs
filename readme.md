@@ -104,6 +104,18 @@ His spin isn't quite the one I'm thinking of, but I'd guess he's done all the
 hard work to achieve what I would like.
 
 
+## Smarter Merging And Diffing
+
+It's perfectly possible to teach your VCS how to merge custom file formats.
+Pretty sure Git already supports it.
+
+So, a really *good* VCS would ship with smart merging and diffing engines for
+major programming languages. Such tools have been written, but I don't remember
+where I saw them in the past.
+
+Diffing is another algorithm, obviously.
+
+
 ## Commits As Undo History
 
 I use undo-tree in Emacs to have infinite undo that works sanely.
