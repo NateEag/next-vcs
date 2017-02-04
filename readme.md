@@ -18,7 +18,8 @@ things git does wonderfully with source code.
 I would like, therefore, to think about what such a VCS might look like.
 
 If you know of one that sounds like a good fit, *please* let me know. I love
-discovering amazing new tools.
+discovering amazing new tools. PlasticSCM sounds very interesting, but I know
+no one who has actually used it, and it is closed source.
 
 
 ## Things Git Does Well
@@ -107,10 +108,10 @@ https://git-annex.branchable.com/todo/smudge/
 So, you have a distributed VCS. Wouldn't it be nice if you could use BitTorrent
 (or similar) as a transport?
 
-Your 'central' server could act as the basic tracker, but for actually
-fetching objects, just let all the clients currently on the network feed each
-other. Lot of design work to hash out, but the core concept is interesting, I
-think.
+Your 'central' server could act as the basic tracker, putting all the clients
+on the network in touch with each other, and serving as a source guaranteed to
+have every object. Lot of design work to hash out, but the core concept is
+interesting, I think.
 
 As with so many cool ideas, someone built this a long time ago:
 https://github.com/cjb/GitTorrent
@@ -183,6 +184,20 @@ http://www.catb.org/esr/writings/version-control/version-control.html#graydon
 
 Similarly, this Reddit thread has a few interesting comments in it:
 https://www.reddit.com/r/programming/comments/2xxb17/git_is_actually_ok_for_some_binaries/
+
+Someone who put some decent thought into this:
+http://tonsky.me/blog/reinventing-git-interface/
+
+Someone who actually built a layer on top of git: http://gitless.com/
+
+And Microsoft just announced a VFS for git, so that actual files can be fetched
+only as needed:
+https://blogs.msdn.microsoft.com/visualstudioalm/2017/02/03/announcing-gvfs-git-virtual-file-system/
+
+The HN discussion of that release had many interesting comments, including
+someone who said that v6 of git annex is almost invisible, needing only a 'git
+annex sync' command that could probably be hidden via hook.
+
 
 ## VCSes I Have Used
 
