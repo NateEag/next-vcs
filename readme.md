@@ -129,8 +129,11 @@ It's perfectly possible to teach your VCS how to merge custom file formats.
 Pretty sure Git already supports it.
 
 So, a really *good* VCS would ship with smart merging and diffing engines for
-major programming languages. Such tools have been written, but I don't remember
-where I saw them in the past.
+major programming languages (and maybe even other file formats - images, at
+least, can be diffed sanely), and make it easy to write your own mergers and
+differs. Such tools have been written - the makers of PlasticSCM sell some, I
+think, but I don't recall seeing general-case OSS tools for this.
+
 
 Diffing is another algorithm, obviously.
 
