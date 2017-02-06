@@ -85,7 +85,10 @@ true locking is inherently incompatible with being distributed, but all we
 really want to do here is let people know 'hey, someone else is working on
 this.' Furthermore, distributed VCSes would offer the locking mechanisms you
 actually want - if you know someone left for the day and just locked things by
-accident, you can leave a sticky note on their desk and ignore the lock.
+accident, you can leave a sticky note on their desk and ignore the lock. Note
+that gitolite has implemented this (though not quite how I would do it, but
+refusing pushes for locked files is a good idea):
+http://gitolite.com/gitolite/locking.html
 
 
 ## Git-Annex For Large Files
