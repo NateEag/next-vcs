@@ -181,7 +181,8 @@ https://blogs.janestreet.com/centralizing-distributed-version-control-revisited/
 This HN discussion of GitHub's LFS announcement was mildly informative (mostly
 it was just people yelling about "why didn't you just use git-annex?"). I'm
 curious to learn what a 'Merkle tree' is, which someone mentioned in
-association with rolling hashes for storing large binary files.
+association with rolling hashes for storing large binary files:
+https://news.ycombinator.com/item?id=9343021
 
 A lovely summary of what Git's missing for enterprise work, courtesy of someone
 at Perforce:
@@ -205,6 +206,7 @@ https://blogs.msdn.microsoft.com/visualstudioalm/2017/02/03/announcing-gvfs-git-
 The HN discussion of that release had many interesting comments, including
 someone who said that v6 of git annex is almost invisible, needing only a 'git
 annex sync' command that could probably be hidden via hook.
+https://news.ycombinator.com/item?id=13559662
 
 
 ## VCSes I Have Used
