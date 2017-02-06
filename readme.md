@@ -143,11 +143,13 @@ Diffing is another algorithm, obviously.
 I use undo-tree in Emacs to have infinite undo that works sanely.
 
 Judicious application of WIP commits and Git's 'squash' concept could let you
-treat the VCS as a persistent, crash-proof undo system (especially if you
-auto-push such temporary commits to other machines in the background). Would
-need to think about marking states explicitly as 'checkpoints', because huge
-undo histories make it hard to find the last point you wanted to be at. Just
-namespaced tags for doing that?
+treat the VCS as a persistent, crash-proof, project-wide undo system
+(especially if you auto-push such temporary commits to other machines in the
+background). It might only make sense to auto-commit when a build runs
+successfully? Or perhaps auto-commit aggressively, but only advertise the
+commits with a successful build? Would need to think about marking states
+explicitly as 'checkpoints', because huge undo histories make it hard to find
+the last point you wanted to be at. Just namespaced tags for doing that?
 
 
 ## POC This On Top Of Git?
