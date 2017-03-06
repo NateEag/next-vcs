@@ -18,8 +18,8 @@ things git does wonderfully with source code.
 I would like, therefore, to think about what such a VCS might look like.
 
 If you know of one that sounds like a good fit, *please* let me know. I love
-discovering amazing new tools. PlasticSCM sounds very interesting, but I know
-no one who has actually used it, and it is closed source.
+discovering amazing new tools. PlasticSCM sounds interesting, but I know no one
+who has actually used it, and it is closed source.
 
 
 ## Things Git Does Well
