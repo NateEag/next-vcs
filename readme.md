@@ -98,7 +98,8 @@ this.' Furthermore, distributed VCSes would offer the locking mechanisms you
 actually want - if you know someone left for the day and just locked things by
 accident, you can leave a sticky note on their desk and ignore the lock. Note
 that gitolite has implemented this (though not quite how I would do it, but
-refusing pushes for locked files is a good idea):
+refusing pushes for locked files is a good idea - would be nice to notify
+people about new locks on fetches, too):
 http://gitolite.com/gitolite/locking.html
 
 
