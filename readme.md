@@ -76,6 +76,17 @@ The same is true of tags - although there are mechanisms to only see tags
 matching a certain pattern, there are no defaults in place for that, so you
 drown in noise if you don't know how not to.
 
+It technically supports not retrieving history ('shallow clones' in git
+parlance), but not especially cleanly, transparently, or discoverably (TODO
+figure out/explain how I wish this worked). The monorepo style of working is
+infeasible without this feature, in extreme edge cases like Google/FB scale.
+
+Similarly, it has support for sparse checkouts, but as far as I know it's a
+bolted on feature that doesn't have a good UI (see for instance this thread,
+where the basic use case takes Apen Warr to provide correct answer:
+https://stackoverflow.com/a/4909267/1128957), and it probably doesn't supply
+all the features people want (e.g. ACL on subdirectories).
+
 It does not provide file locking. Yes, file locking is stupid if your format is
 merge-friendly and diffable, but if it is not, about the best thing you can do
 is say "warning; I'm working on this." Some hooks for interactions with remotes
