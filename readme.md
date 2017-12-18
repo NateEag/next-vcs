@@ -5,8 +5,8 @@ daily work.
 
 Git is my current default choice for the many things it gets right, but I
 believe it has many superficial flaws (which could be solved with a little
-effort) and some fundamental decisions which (which by definition would be
-much harder to fix).
+effort) and some fundamental flaws (which by definition would be much harder to
+fix).
 
 It is my belief that a significantly better version control system is possible.
 If the one I want is out there, I haven't found it so far.
