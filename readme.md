@@ -239,4 +239,5 @@ A patch-based VCS a la darcs that might be interesting: https://pijul.org/
 ## License
 
 Unless explicitly stated otherwise, the contents of this repo are under the
-[Creative Comments Attribution 4.0 license](https://creativecommons.org/licenses/by/4.0/).
+[Creative Commons Attribution 4.0
+license](https://creativecommons.org/licenses/by/4.0/).
