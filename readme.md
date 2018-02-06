@@ -72,6 +72,17 @@ don't want to be pestered by seeing that branch in the UI all the time). I hear
 Mercurial's data structures handle this differently, and in a way some people
 prefer.
 
+Similarly, while it warns you about the complexities of rewriting shared
+branches, it has no internal mechanism to mark branches as 'private' or
+'public', and no way for you to know if an open branch has become a shared
+branch. In the cases where you have a de-facto central server, it could keep
+track of that - if it did, the warnings about rewriting shared history could be
+factored into the tool itself, in cases where you're rewriting history that is
+not known to be private (when you've pushed a new branch to central but not
+marked it as private, your local checkout should treat it as 'possibly
+shared').
+
+
 The same is true of tags - although there are mechanisms to only see tags
 matching a certain pattern, there are no defaults in place for that, so you
 drown in noise if you don't know how not to.
