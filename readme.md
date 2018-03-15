@@ -201,6 +201,8 @@ https://bitquabit.com/post/unorthodocs-abandon-your-dvcs-and-return-to-sanity/
 
 https://blogs.janestreet.com/centralizing-distributed-version-control-revisited/
 
+http://www.ianbicking.org/distributed-vs-centralized-scm.html
+
 This HN discussion of GitHub's LFS announcement was mildly informative (mostly
 it was just people yelling about "why didn't you just use git-annex?"). I'm
 curious to learn what a 'Merkle tree' is, which someone mentioned in
