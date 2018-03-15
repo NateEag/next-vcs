@@ -49,6 +49,18 @@ Similarly,
 should display the command's documentation.
 
 
+## Tutorial
+
+    $ vcs tutorial
+
+should begin an interactive training session on how to use the system.
+
+I have many thoughts on what that could look like, but the core of it is having
+exercises defined as known states you're supposed to reach and checking whether
+you've reached them or not (along with showing the 'ideal' solution to the
+problem).
+
+
 ## Commands
 
     $ vcs commands
@@ -65,13 +77,22 @@ should create a new repository in the given directory, creating the folder if
 it does not exist.
 
 
-## Check Out Repository State
+## Check Out / Create Repository
 
-    $ vcs edit <repo_url> [repo_path] [commitish [filepath]]
+    $ vcs edit <repo_path> [repo_url] [commitish [filepath]]
 
-The `edit` command is roughly analogous to Subversion's `checkout` command.
+The `edit` command is roughly analogous to Subversion's `checkout` command. I
+also do not love its name.
 
-It sets up a folder for making changes to
+It configures a folder on your local filesystem for versioning content.
 
-`repo_url` is a URL to a central repository (which, it should be noted, must
-declare itself as such).
+`repo_path` is the local directory you would like the new repository to live
+in. If it does not exist, it will be created. If it exists but is not a
+repository, it should suggest you try running the 'create' command to begin
+versioning the directory's contents.
+
+`repo_url` is an optional URL to a central repository (which, it should be
+noted, must declare itself as such). If passed, the new checkout will treat the
+repository at `repo_url` as its canonical repository. Thus, if `repo_path` does
+not exist, it will be populated from this URL. If `repo_path` exists, it will
+assume 
