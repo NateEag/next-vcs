@@ -233,6 +233,9 @@ someone who said that v6 of git annex is almost invisible, needing only a 'git
 annex sync' command that could probably be hidden via hook.
 https://news.ycombinator.com/item?id=13559662
 
+A lengthy thread on HN about why Fossil's author doesn't like Git:
+https://news.ycombinator.com/item?id=16806114
+
 
 ## VCSes I Have Used
 
