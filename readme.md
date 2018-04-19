@@ -94,7 +94,7 @@ infeasible without this feature, in extreme edge cases like Google/FB scale.
 
 Similarly, it has support for sparse checkouts, but as far as I know it's a
 bolted on feature that doesn't have a good UI (see for instance this thread,
-where the basic use case takes Apen Warr to provide correct answer:
+where the basic use case takes apenwarr to provide correct answer:
 https://stackoverflow.com/a/4909267/1128957), and it probably doesn't supply
 all the features people want (e.g. ACL on subdirectories).
 
