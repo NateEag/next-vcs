@@ -82,7 +82,6 @@ not known to be private (when you've pushed a new branch to central but not
 marked it as private, your local checkout should treat it as 'possibly
 shared').
 
-
 The same is true of tags - although there are mechanisms to only see tags
 matching a certain pattern, there are no defaults in place for that, so you
 drown in noise if you don't know how not to.
@@ -112,6 +111,10 @@ that gitolite has implemented this (though not quite how I would do it, but
 refusing pushes for locked files is a good idea - would be nice to notify
 people about new locks on fetches, too):
 http://gitolite.com/gitolite/locking.html
+
+Its handling of Windows and Linux newline characters is poor. At least it was
+the last time I had to deal with it, and the bad ways of doing things are
+almost certainly still there due to backwards compatibility.
 
 
 ## Git-Annex For Large Files
