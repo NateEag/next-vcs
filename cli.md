@@ -60,6 +60,10 @@ exercises defined as known states you're supposed to reach and checking whether
 you've reached them or not (along with showing the 'ideal' solution to the
 problem).
 
+Note that this could be implemented by cherry-picking important tests for core
+features from the functional test suite and running them each time the user
+takes a step (or explicitly asks for a grade).
+
 
 ## Commands
 
