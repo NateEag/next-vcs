@@ -99,4 +99,28 @@ versioning the directory's contents.
 noted, must declare itself as such). If passed, the new checkout will treat the
 repository at `repo_url` as its canonical repository. Thus, if `repo_path` does
 not exist, it will be populated from this URL. If `repo_path` exists, it will
-assume 
+assume
+
+
+## Move Commit
+
+   $ vcs move-commits <commit IDs> [branch]
+
+Remove specified commits from any branches they are currently included in and
+append them to the target branch, which defaults to the current branch if not
+given.
+
+This is not a core command, nor have I thought through the interface carefully
+(which presents several subtle difficulties, such as - how do we specify
+branches, especially remote ones? How do we specify a range [or multiple
+ranges] of commits?).
+
+It's here to remind me of what I frequently want when I have to reach for the
+chainsaw which is `git rebase`, or the not-quite-right tool which is `git
+cherry-pick`. Often enough I've just made a commit or two on the wrong branch
+without thinking, and I just want to move them.
+
+This should, obviously, refuse to operate on shared and/or protected branches
+(and there's another subtlety I haven't thought about yet - how and when we
+mark branches and commits as "public history", as opposed to "work in progress
+that's been auto-pushed to all available repos on the network for redundancy")
