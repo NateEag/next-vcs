@@ -95,7 +95,10 @@ Similarly, it has support for sparse checkouts, but as far as I know it's a
 bolted on feature that doesn't have a good UI (see for instance this thread,
 where the basic use case takes apenwarr to provide correct answer:
 https://stackoverflow.com/a/4909267/1128957), and it probably doesn't supply
-all the features people want (e.g. ACL on subdirectories).
+all the features people want (e.g. ACL on subdirectories). If I recall
+correctly, it doesn't handle the biggest reason people want this feature, which
+is to just plain *not have* the directories you didn't check out on disk
+anywhere (including your VCS metadata).
 
 It does not provide file locking. Yes, file locking is stupid if your format is
 merge-friendly and diffable, but if it is not, about the best thing you can do
