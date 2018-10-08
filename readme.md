@@ -191,6 +191,27 @@ Could be fun.
 ...or complete madness. You decide.
 
 
+## Post-Clone Hooks
+
+Git has these, but they don't actually do what I want in practice, which is to
+say "first time someone clones this repo, run this command - don't make them
+think about sandbox setup."
+
+What I'd like is an option to say, basically, "I *highly* trust this server I'm
+about to clone from - let it do whatever insanity it wants." If that option's
+not set, interactively ask permission to do whatever it wants when a repo
+specifies a post-clone hook.
+
+That way, workplace repositories and the like could kick off sandbox setup
+immediately after the clone, instead of requiring you two run two commands.
+
+That may sound silly and pedantic, but it would make standardizing project
+setup massively easier in SOAs a la Amazon - checking out the project *gets*
+you a standard instance of whatever service you need (and presumably registers
+it in your local sandbox instance of the service discovery system, so your
+other sandboxes know to point at it by default).
+
+
 ## Other People's Thoughts
 
 I am definitely not the first person to express the idea that the ideal VCS has
