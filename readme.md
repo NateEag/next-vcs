@@ -104,10 +104,11 @@ It does not provide file locking. Yes, file locking is stupid if your format is
 merge-friendly and diffable, but if it is not, about the best thing you can do
 is say "warning; I'm working on this." Some hooks for interactions with remotes
 and an agreed-upon central locking service would let you implement this -
-'locked' files can just be marked read-only in your working copy. Obviously
-true locking is inherently incompatible with being distributed, but all we
-really want to do here is let people know 'hey, someone else is working on
-this.' Furthermore, distributed VCSes would offer the locking mechanisms you
+'locked' files can be marked read-only in your working copy, and we can include
+a mechanism for seeing who locked it (and what repo is the source of the lock).
+Obviously true locking is inherently incompatible with being distributed, but
+all we really want to do here is let people know 'hey, someone else is working
+on this.' Furthermore, distributed VCSes would offer the locking mechanisms you
 actually want - if you know someone left for the day and just locked things by
 accident, you can leave a sticky note on their desk and ignore the lock. Note
 that gitolite has implemented this (though not quite how I would do it, but
