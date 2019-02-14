@@ -108,13 +108,25 @@ and an agreed-upon central locking service would let you implement this -
 a mechanism for seeing who locked it (and what repo is the source of the lock).
 Obviously true locking is inherently incompatible with being distributed, but
 all we really want to do here is let people know 'hey, someone else is working
-on this.' Furthermore, distributed VCSes would offer the locking mechanisms you
-actually want - if you know someone left for the day and just locked things by
-accident, you can leave a sticky note on their desk and ignore the lock. Note
-that gitolite has implemented this (though not quite how I would do it, but
-refusing pushes for locked files is a good idea - would be nice to notify
-people about new locks on fetches, too):
-http://gitolite.com/gitolite/locking.html
+on this.' You could take it a step further and auto-lock unmergeable files as
+soon as the VCS sees a change to one (it should warn you it did so and offer
+you the chance to undo/unlock it). Furthermore, distributed VCSes would offer
+the locking mechanisms you actually want - if you know someone left for the day
+and just locked things by accident, you can leave a sticky note on their desk
+and ignore the lock. They're less "locks" and more automatic warnings if
+someone else starts editing an unmergeable file. Note that gitolite has
+implemented this (though not quite how I would do it, but refusing pushes for
+locked files is interesting - would be nice to notify people about new locks on
+fetches, too): http://gitolite.com/gitolite/locking.html
+
+Insight: VCS locks aren't about controlling access to files. They're about
+facilitating communication about who's doing what. Files that can't be merged
+should *always* trigger a warning if two edits might result in a conflict, but
+you could do higher-res warnings based on filetype and diffs if you had
+language-level parsing - "you're calling a function someone else is currently
+changing internals in".
+
+That would be so sweet.
 
 Its handling of Windows and Linux newline characters is poor. At least it was
 the last time I had to deal with it, and the bad ways of doing things are
