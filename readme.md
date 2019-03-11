@@ -126,7 +126,10 @@ you could do higher-res warnings based on filetype and diffs if you had
 language-level parsing - "you're calling a function someone else is currently
 changing internals in".
 
-That would be so sweet.
+That would be so sweet. Wonder if it would be possible to use [LSP
+backends](https://langserver.org/) as infrastructure to magically get support
+for diffing and merging arbitrary languages? Probably wouldn't quite work, but
+it's the germ of an idea.
 
 Its handling of Windows and Linux newline characters is poor. At least it was
 the last time I had to deal with it, and the bad ways of doing things are
