@@ -200,6 +200,19 @@ There might be more we can do here than just those things, too, but those would
 certainly be a start.
 
 
+## Distributedish Task Tracking
+
+If you kept your project's task data in the repo, as various distributed issue
+tracking tools will do, you can treat the canonical repo's data as the source of
+truth.
+
+That's probably a job for an entirely different system (centralized UI that
+automatically commits new submissions and relies on a diff/merge driver to make
+sure it never conflicts), but I thought it was worth noting, as it could be
+relevant in the VCS itself. A VCS is fundamentally a collaborative tool, so
+keeping track of the work to be done could certainly be in its purview.
+
+
 ## Commits As Undo History
 
 I use undo-tree in Emacs to have infinite undo that works sanely.
