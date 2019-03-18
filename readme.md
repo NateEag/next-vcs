@@ -183,6 +183,23 @@ think, but I don't recall seeing general-case OSS tools for this.
 Diffing is another algorithm, obviously.
 
 
+## Branches As First-Class Citizens
+
+While they're way closer than in many previous VCSes, Git's branches are
+actually still second-class compared with, say, commits or tags, as noted
+elsewhere in this doc:
+
+- You are expected to delete them after merge
+- They [do not support shared description metadata](https://stackoverflow.com/a/8858853/1128957)
+- They cannot be natively marked as 'private' vs. 'public'
+- They cannot serve as the anchor point for multiple passes at creating a
+  patchseries (see commit message hacks in Gerrit for keeping all the rebased
+  versions of a branch linked up)
+
+There might be more we can do here than just those things, too, but those would
+certainly be a start.
+
+
 ## Commits As Undo History
 
 I use undo-tree in Emacs to have infinite undo that works sanely.
