@@ -64,7 +64,10 @@ performing rewrites are incomplete (there was no way to rebase a whole subtree
 of branches in one shot last I checked), badly documented (it took me quite a
 few readings of the rebase manpage to get it when I first learned about it),
 and unsafe (instead of documenting that you shouldn't rewrite pushed history,
-why not *remember* that I rewrote it and warn me if I try?).
+why not *remember* that I rewrote it and warn me if I try? Similarly, if I just
+rewrote a shared branch, it should warn me if I then try to merge the old
+commits from the remote - I almost certainly didn't mean to do that [saw this
+happen to a rebase newbie recently]).
 
 It does not have any concept of 'archiving' branches; after merging, you're
 expected to delete them, thereby losing useful historical information (if you
