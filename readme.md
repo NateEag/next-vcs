@@ -145,6 +145,21 @@ the last time I had to deal with it, and the bad ways of doing things are
 almost certainly still there due to backwards compatibility.
 
 
+## Smarter Merging And Diffing
+
+It's perfectly possible to teach your VCS how to merge custom file formats.
+Pretty sure Git already supports it.
+
+So, a really *good* VCS would ship with smart merging and diffing engines for
+major programming languages (and maybe even other file formats - images, at
+least, can be diffed sanely), and make it easy to write your own mergers and
+differs. Such tools have been written - the makers of PlasticSCM sell some, I
+think, but I don't recall seeing general-case OSS tools for this.
+
+
+Diffing is another algorithm, obviously.
+
+
 ## Git-Annex For Large Files
 
 If you could make git-annex work transparently with the regular git commands,
@@ -175,21 +190,6 @@ https://github.com/cjb/GitTorrent
 
 His spin isn't quite the one I'm thinking of, but I'd guess he's done all the
 hard work to achieve what I would like.
-
-
-## Smarter Merging And Diffing
-
-It's perfectly possible to teach your VCS how to merge custom file formats.
-Pretty sure Git already supports it.
-
-So, a really *good* VCS would ship with smart merging and diffing engines for
-major programming languages (and maybe even other file formats - images, at
-least, can be diffed sanely), and make it easy to write your own mergers and
-differs. Such tools have been written - the makers of PlasticSCM sell some, I
-think, but I don't recall seeing general-case OSS tools for this.
-
-
-Diffing is another algorithm, obviously.
 
 
 ## Branches As First-Class Citizens
