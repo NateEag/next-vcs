@@ -270,6 +270,35 @@ it in your local sandbox instance of the service discovery system, so your
 other sandboxes know to point at it by default).
 
 
+## Handling Cryptographic Signatures
+
+Linus and some other experts disagree on how cryptographic signatures should be
+handled in git.
+
+Linus says that signing release tags is the only reasonable thing, while other
+people think all commits should be signed.
+
+I'm not sure who is right, but I wondered recently if perhaps support for
+signing things besides just commits might be useful.
+
+I could see signing a tree (folder, for those who don't speak git) as part of a
+code review process.
+
+The advantage is that you can then rebase without losing your approval if the
+rebase turns out to be trivial.
+
+OTOH, you could argue that as a downside, too - invisible semantic conflicts
+are absolutely possible, as is sneaking in bad commits to the history, so maybe
+reviewers should have to re-review after a rebase.
+
+Guess if you want that policy you could require all root trees in a branch to
+be approved. A different way to say that is "each individual patch in a merge
+request must be approved".
+
+And with my hypothetical logical conflict detector, I suppose you could
+automatically unapprove a rebase that might introduce a change in semantics.
+
+
 ## Other People's Thoughts
 
 I am definitely not the first person to express the idea that the ideal VCS has
