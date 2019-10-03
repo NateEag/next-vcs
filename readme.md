@@ -55,7 +55,13 @@ change frequently. I have not personally encountered this problem much, but I
 have seen the beginnings of it, and know from other accounts what happens if
 you try to keep game assets like 3D models in it.
 
-Its CLI is inconsistent, confusing, and hard to remember.
+Its CLI is inconsistent, confusing, and hard to remember. Highlights include
+`git checkout` both being used for safe operations like changing branches and
+creating new branches, and also for deadly operations like discarding
+uncommitted work (idea: discarding uncommitted work should automatically create
+a backup commit containing the exact state you just discarded - the usual GC
+operations would eventually clean it up if you don't need to dig it out of the
+reflog).
 
 While it supports rewriting unpublished history better than most VCSes, and
 even enables whole-repo rewrites (useful for purging things like huge binaries
