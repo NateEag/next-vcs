@@ -50,36 +50,88 @@ new workflows you'd never have tried otherwise).
 
 ## Things Git Does Poorly
 
+### Big Files
+
 It's very slow when dealing with huge files, especially a lot of them that
 change frequently. I have not personally encountered this problem much, but I
 have seen the beginnings of it, and know from other accounts what happens if
 you try to keep game assets like 3D models in it.
 
-Its CLI is inconsistent, confusing, and hard to remember. Highlights include
-`git checkout` both being used for safe operations like changing branches and
-creating new branches, and also for deadly operations like discarding
-uncommitted work (idea: discarding uncommitted work should automatically create
-a backup commit containing the exact state you just discarded - the usual GC
-operations would eventually clean it up if you don't need to dig it out of the
-reflog).
 
-While it supports rewriting unpublished history better than most VCSes, and
-even enables whole-repo rewrites (useful for purging things like huge binaries
-when you realize committing them in a Git repo was a mistake), its tools for
-performing rewrites are incomplete (there was no way to rebase a whole subtree
-of branches in one shot last I checked), confusing (there should be an easier
-way to say "I want to break a commit into multiple commits" than this:
-https://stackoverflow.com/a/6217314/1128957, and similarly I would love a
-simple way to say "add this patch to an older commit in my private branch",
-something less undiscoverable, rebase-centric, and funky than `--autosquash` [I
-think I want a command that looks like `git squash <into-ref>
-[<source-ref>]`]), badly documented (it took me quite a few readings of the
-rebase manpage to get it when I first learned about it), and unsafe (instead of
-documenting that you shouldn't rewrite pushed history, why not *remember* that
-I rewrote it and warn me if I try? Similarly, if I just rewrote a shared
-branch, it should warn me if I then try to merge the old commits from the
-remote - I almost certainly didn't mean to do that [saw this happen to a rebase
-newbie recently]).
+### User Interface Design
+
+Its CLI is inconsistent, confusing, and hard to remember. Highlights include:
+
+* `git checkout` both being used for safe operations like changing branches and
+  creating new branches, and also for deadly operations like discarding
+  uncommitted work (idea: discarding uncommitted work should automatically
+  create a backup commit containing the exact state you just discarded - the
+  usual GC operations would eventually clean it up if you don't need to dig it
+  out of the reflog-equivalent a day later [further idea - the default reflog
+  view should show you just states you threw out, as getting those back is why
+  you're usually in the reflog especially as a newbie]).
+
+
+### Newline Handling
+
+Its handling of Windows and Linux newline characters is poor. At least it was
+the last time I had to deal with it, and the bad ways of doing things are
+almost certainly still there due to backwards compatibility.
+
+
+### Rewriting History
+
+Git doesn't do this "badly", per se. It supports rewriting unpublished history
+better than most VCSes, and even enables whole-repo rewrites (useful for
+purging things like huge binaries when you realize committing them in a Git
+repo was a mistake).
+
+However, its tools for performing rewrites are incomplete, confusing, badly
+documented, and unsafe.
+
+A few examples:
+
+* There was no way to rebase a whole subtree of branches in one shot last I
+  checked.
+
+* There should be an easier way to say "I want to break a commit into multiple
+  commits" than this: https://stackoverflow.com/a/6217314/1128957, and
+  similarly I would love a simple way to say "add this patch to an older commit
+  in my private branch", something less undiscoverable, rebase-centric, and
+  funky than `--autosquash` (I think I want a command that looks like `git
+  squash <into-ref> [<source-ref>]`, where if <source-ref> is not passed the
+  staged patch is squashed into it).
+
+* It took me quite a few readings of the rebase manpage to even grok its most
+  basic usage when I first learned about it. The concept is a bit subtle, but
+  the manpage is inscrutable.
+
+* Instead of *documenting* that you shouldn't rewrite pushed history, why not
+  *remember* that I rewrote it and warn me if I try? Similarly, if I just
+  rewrote a shared branch, it should warn me if I then try to merge the old
+  commits from the remote - I almost certainly didn't mean to do that [saw this
+  happen to a rebase newbie recently].
+
+* While it warns you about the complexities of rewriting shared branches, it
+  has no internal mechanism to mark branches as 'private' or 'public', and no
+  way for you to know if an open branch has become a shared branch. In the
+  cases where you have a de-facto central server, it could keep track of that -
+  if it did, the warnings about rewriting shared history could be factored into
+  the tool itself, in cases where you're rewriting history that is not known to
+  be private (when you've pushed a new branch to central but not marked it as
+  private, your local checkout should treat it as 'possibly shared').
+
+
+### Renaming Branches
+
+Rename a local branch. If you have a remote configured, it stays untouched, and
+as far as I know the only way to "rename" it is to push a new one then delete
+the old one, which of course isn't actually a rename as anyone who had your old
+branch checked out now cannot find it (never mind the chaos if you actually had
+a merge request or code review happening on that branch).
+
+
+### Preserving Branch History
 
 It does not have any concept of 'archiving' branches; after merging, you're
 expected to delete them, thereby losing useful historical information (if you
@@ -87,19 +139,12 @@ don't want to be pestered by seeing that branch in the UI all the time). I hear
 Mercurial's data structures handle this differently, and in a way some people
 prefer.
 
-Similarly, while it warns you about the complexities of rewriting shared
-branches, it has no internal mechanism to mark branches as 'private' or
-'public', and no way for you to know if an open branch has become a shared
-branch. In the cases where you have a de-facto central server, it could keep
-track of that - if it did, the warnings about rewriting shared history could be
-factored into the tool itself, in cases where you're rewriting history that is
-not known to be private (when you've pushed a new branch to central but not
-marked it as private, your local checkout should treat it as 'possibly
-shared').
-
 The same is true of tags - although there are mechanisms to only see tags
 matching a certain pattern, there are no defaults in place for that, so you
 drown in noise if you don't know how not to.
+
+
+### Lazy-Loading History
 
 It technically supports not retrieving history ('shallow clones' in git
 parlance), but not especially cleanly, transparently, or discoverably (TODO
@@ -113,26 +158,53 @@ https://stackoverflow.com/a/4909267/1128957), and it probably doesn't supply
 all the features people want (e.g. ACL on subdirectories). If I recall
 correctly, it doesn't handle the biggest reason people want this feature, which
 is to just plain *not have* the directories you didn't check out on disk
-anywhere (including your VCS metadata).
+anywhere (including your VCS metadata). Again, for monorepos you need that (and
+you also need the aforementioned)
 
-It does not provide file locking. Yes, file locking is stupid if your format is
-merge-friendly and diffable, but if it is not, about the best thing you can do
-is say "warning; I'm working on this." Some hooks for interactions with remotes
-and an agreed-upon central locking service would let you implement this -
-'locked' files can be marked read-only in your working copy, and we can include
-a mechanism for seeing who locked it (and what repo is the source of the lock).
+
+## Ideal VCS Features
+
+These aren't so much deficiencies in git as things it was never intended to do.
+
+A lot of these are centered around my belief that while distributed VCSes are
+really useful, in reality most teams *want* a centralized node that is the Law
+and the Prophets.
+
+The distributed stuff is mostly about programmer convenience and making it
+easier to build power tools for doing stupid VCS tricks like history rewrites.
+
+
+### Prescient Conflict Warnings
+
+Git has no concept of file locking.
+
+File locking is stupid if your format is merge-friendly and diffable.
+
+If it is not, about the best thing you can do is say "warning; I'm working on
+this."
+
+Some hooks for interactions with remotes and an agreed-upon central locking
+service would let you implement this - 'locked' files can be marked read-only
+in your working copy, and we can include a mechanism for seeing who locked it
+(and what repo is the source of the lock).
+
 Obviously true locking is inherently incompatible with being distributed, but
 all we really want to do here is let people know 'hey, someone else is working
-on this.' You could take it a step further and auto-lock unmergeable files as
-soon as the VCS sees a change to one (it should warn you it did so and offer
-you the chance to undo/unlock it). Furthermore, distributed VCSes would offer
-the locking mechanisms you actually want - if you know someone left for the day
-and just locked things by accident, you can leave a sticky note on their desk
-and ignore the lock. They're less "locks" and more automatic warnings if
-someone else starts editing an unmergeable file. Note that gitolite has
-implemented this (though not quite how I would do it, but refusing pushes for
-locked files is interesting - would be nice to notify people about new locks on
-fetches, too): http://gitolite.com/gitolite/locking.html
+on this.'
+
+You could take it a step further and auto-lock unmergeable files as soon as the
+VCS sees a change to one (it should warn you it did so and offer you the chance
+to undo/unlock it). Furthermore, distributed VCSes would offer the locking
+mechanisms you actually want - if you know someone left for the day and just
+locked things by accident, you can leave a sticky note on their desk and ignore
+the lock.
+
+These are less "locks" and more automatic warnings if someone else starts
+editing an unmergeable file. Note that gitolite has implemented this (though
+not quite how I would do it, but refusing pushes for locked files is
+interesting - would be nice to notify people about conflicting locks on fetches
+and file modification, too. Lock messages akin to commit messages might be
+interesting): http://gitolite.com/gitolite/locking.html
 
 Insight: VCS locks aren't about controlling access to files. They're about
 facilitating communication about who's doing what. Files that can't be merged
@@ -144,14 +216,11 @@ changing internals in".
 That would be so sweet. Wonder if it would be possible to use [LSP
 backends](https://langserver.org/) as infrastructure to magically get support
 for diffing and merging arbitrary languages? Probably wouldn't quite work, but
-it's the germ of an idea.
-
-Its handling of Windows and Linux newline characters is poor. At least it was
-the last time I had to deal with it, and the bad ways of doing things are
-almost certainly still there due to backwards compatibility.
+it's the germ of an idea. With the right language-agnostic API this is possible
+- whether that API already exists is the unknown for me here.
 
 
-## Smarter Merging And Diffing
+### Smarter Merging And Diffing
 
 It's perfectly possible to teach your VCS how to merge custom file formats.
 Pretty sure Git already supports it.
@@ -159,29 +228,16 @@ Pretty sure Git already supports it.
 So, a really *good* VCS would ship with smart merging and diffing engines for
 major programming languages (and maybe even other file formats - images, at
 least, can be diffed sanely), and make it easy to write your own mergers and
-differs. Such tools have been written - the makers of PlasticSCM sell some, I
-think, but I don't recall seeing general-case OSS tools for this.
+differs.
+
+Such tools have been written - the makers of PlasticSCM sell some, I think, but
+I don't recall seeing general-case OSS tools for this.
+
+This obviously should use the same language-awareness plumbing I proposed for
+the smarter layer on top of the file locking system above.
 
 
-Diffing is another algorithm, obviously.
-
-
-## Git-Annex For Large Files
-
-If you could make git-annex work transparently with the regular git commands,
-and use bup as your annex backend store, you could be in a pretty good place
-for dealing with large files. I'd have to actually try it to know if it's at
-all true.
-
-Unsurprisingly, I'm not the only one who's thought about this - the git-annex
-maintainers are trying to adapt smudge and clean filters to do this job. It's
-not clear to me if it's actually working yet, but it appears to be an area of
-active research:
-
-https://git-annex.branchable.com/todo/smudge/
-
-
-## BitTorrent As Transport
+### BitTorrent As Transport
 
 So, you have a distributed VCS. Wouldn't it be nice if you could use BitTorrent
 (or similar) as a transport?
@@ -198,15 +254,21 @@ His spin isn't quite the one I'm thinking of, but I'd guess he's done all the
 hard work to achieve what I would like.
 
 
-## Branches As First-Class Citizens
+### Branches As First-Class Citizens
 
 While they're way closer than in many previous VCSes, Git's branches are
 actually still second-class compared with, say, commits or tags, as noted
 elsewhere in this doc:
 
 - You are expected to delete them after merge
+
 - They [do not support shared description metadata](https://stackoverflow.com/a/8858853/1128957)
-- They cannot be natively marked as 'private' vs. 'public'
+
+- They cannot be natively marked as 'private' vs. 'public', which would be
+  really helpful in automatically deciding whether you should be allowed to
+  push rewritten history to the branch or not (and perhaps also in deciding who
+  should be allowed to access the branch?).
+
 - They cannot serve as the anchor point for multiple passes at creating a
   patchseries (see commit message hacks in Gerrit for keeping all the rebased
   versions of a branch linked up)
@@ -215,11 +277,11 @@ There might be more we can do here than just those things, too, but those would
 certainly be a start.
 
 
-## Distributedish Task Tracking
+### Distributedish Task Tracking
 
 If you kept your project's task data in the repo, as various distributed issue
-tracking tools will do, you can treat the canonical repo's data as the source of
-truth.
+tracking tools will do, you can treat the canonical repo's data as the source
+of truth.
 
 That's probably a job for an entirely different system (centralized UI that
 automatically commits new submissions and relies on a diff/merge driver to make
@@ -228,7 +290,7 @@ relevant in the VCS itself. A VCS is fundamentally a collaborative tool, so
 keeping track of the work to be done could certainly be in its purview.
 
 
-## Commits As Undo History
+### Commits As Souped-Up Undo History
 
 I use undo-tree in Emacs to have infinite undo that works sanely.
 
@@ -242,20 +304,7 @@ explicitly as 'checkpoints', because huge undo histories make it hard to find
 the last point you wanted to be at. Just namespaced tags for doing that?
 
 
-## POC This On Top Of Git?
-
-Starting to think these ideas, once better defined, could be proofed out with
-git annex + bup for big binaries, gittorrent, some clever aliasing, actually
-writing code when it can't be avoided, and a buttload of hooks, perhaps
-managed by my
-unfinished [githooks package system](https://github.com/NateEag/githooks.d).
-
-Could be fun.
-
-...or complete madness. You decide.
-
-
-## Post-Clone Hooks
+### Post-Clone Hooks
 
 Git has these, but they don't actually do what I want in practice, which is to
 say "first time someone clones this repo, run this command - don't make them
@@ -276,7 +325,7 @@ it in your local sandbox instance of the service discovery system, so your
 other sandboxes know to point at it by default).
 
 
-## Handling Cryptographic Signatures
+### Handling Cryptographic Signatures
 
 Linus and some other experts disagree on how cryptographic signatures should be
 handled in git.
@@ -303,6 +352,34 @@ request must be approved".
 
 And with my hypothetical logical conflict detector, I suppose you could
 automatically unapprove a rebase that might introduce a change in semantics.
+
+
+## Git-based POC?
+
+I think these ideas, once better defined, could be proofed out with git annex +
+bup for big binaries, gittorrent, some clever aliasing,a buttload of hooks
+(perhaps managed by my unfinished [githooks package
+system](https://github.com/NateEag/githooks.d)), and maybe writing a few new
+commands if it can't be avoided.
+
+Could be fun.
+
+...or complete madness. You decide.
+
+
+### Git-Annex For Large Files
+
+If you could make git-annex work transparently with the regular git commands,
+and use bup as your annex backend store, you could be in a pretty good place
+for dealing with large files. I'd have to actually try it to know if it's at
+all true.
+
+Unsurprisingly, I'm not the only one who's thought about this - the git-annex
+maintainers are trying to adapt smudge and clean filters to do this job. It's
+not clear to me if it's actually working yet, but it appears to be an area of
+active research:
+
+https://git-annex.branchable.com/todo/smudge/
 
 
 ## Other People's Thoughts
@@ -341,8 +418,8 @@ http://tonsky.me/blog/reinventing-git-interface/
 
 Someone who actually built a layer on top of git: http://gitless.com/
 
-And Microsoft just announced a VFS for git, so that actual files can be fetched
-only as needed:
+And Microsoft announced a VFS for git, so that actual files can be fetched only
+as needed:
 https://blogs.msdn.microsoft.com/visualstudioalm/2017/02/03/announcing-gvfs-git-virtual-file-system/
 
 The HN discussion of that release had many interesting comments, including
