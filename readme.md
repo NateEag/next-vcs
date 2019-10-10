@@ -121,6 +121,15 @@ A few examples:
   be private (when you've pushed a new branch to central but not marked it as
   private, your local checkout should treat it as 'possibly shared').
 
+* git push --force-with-lease should be the default behavior, since for history
+  that's not yet canonical, it's the right thing. History that's not yet
+  canonical is, of course, the 'private' branch idea I was whining about above.
+  Git doesn't have them, but it's possible to sort of hack in protected
+  branches by pre-receive hooks (and a private branch is almost like an
+  unprotected branch, weird as that sounds). This one is basically an accident
+  of history - push got --force before it got the much more reasonable
+  --force-with-lease.
+
 
 ### Renaming Branches
 
