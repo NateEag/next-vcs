@@ -439,6 +439,20 @@ https://news.ycombinator.com/item?id=13559662
 A lengthy thread on HN about why Fossil's author doesn't like Git:
 https://news.ycombinator.com/item?id=16806114
 
+A few different people have talked about monorepos vs. many repos. Some
+articles I found thought-provoking:
+
+* https://beza1e1.tuxen.de/monorepo_vcs.html - poor grammar but good thoughts
+* https://danluu.com/monorepo/ - clear explanation of the benefits of monorepo
+
+In principle, I think the ideal VCS would enable both monorepo and manyrepo
+workflows and let you choose what's right for you. Perhaps that is not feasible
+in reality, but so far I don't know of any genuine hard tradeoffs (like
+security vs. accessibility, where the two really are inherently opposed to each
+other). It certainly would increase expense and difficulty to support monorepo,
+though, as you have to deal with a lot of complexity and scaling issues that
+Git has historically just ignored.
+
 
 ## VCSes I Have Used
 
