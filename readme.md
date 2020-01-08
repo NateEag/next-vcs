@@ -468,6 +468,9 @@ monotone, darcs, bazaar, BitKeeper, Perforce, Fossil
 
 A patch-based VCS a la darcs that might be interesting: https://pijul.org/
 
+Got is an OpenBSD-specific VCS that appears to be a reimagining of Git, based
+on the core datastructures: http://gameoftrees.org/
+
 
 ## License
 
