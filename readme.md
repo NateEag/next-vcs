@@ -206,7 +206,7 @@ VCS sees a change to one (it should warn you it did so and offer you the chance
 to undo/unlock it). Furthermore, distributed VCSes would offer the locking
 mechanisms you actually want - if you know someone left for the day and just
 locked things by accident, you can leave a sticky note on their desk and ignore
-the lock.
+the lock. The VCS can just do that for you.
 
 These are less "locks" and more automatic warnings if someone else starts
 editing an unmergeable file. Note that gitolite has implemented this (though
@@ -216,17 +216,25 @@ and file modification, too. Lock messages akin to commit messages might be
 interesting): http://gitolite.com/gitolite/locking.html
 
 Insight: VCS locks aren't about controlling access to files. They're about
-facilitating communication about who's doing what. Files that can't be merged
-should *always* trigger a warning if two edits might result in a conflict, but
-you could do higher-res warnings based on filetype and diffs if you had
-language-level parsing - "you're calling a function someone else is currently
-changing internals in".
+facilitating communication about who's doing what.
 
-That would be so sweet. Wonder if it would be possible to use [LSP
+Files that can't be merged should *always* trigger a warning if two edits might
+result in a conflict, but you could do higher-res warnings based on filetype
+and diffs if you had language-level parsing - "you're calling a function
+someone else is currently changing internals in".
+
+That would be so sweet.
+
+Wonder if it would be possible to use [LSP
 backends](https://langserver.org/) as infrastructure to magically get support
 for diffing and merging arbitrary languages? Probably wouldn't quite work, but
 it's the germ of an idea. With the right language-agnostic API this is possible
 - whether that API already exists is the unknown for me here.
+
+[This paper on comparing Git's diff
+algorithms](https://link.springer.com/article/10.1007/s10664-019-09772-z) has a
+bibliography well worth mining - it has pointers to several papers on advanced
+diffing engines, some based on language analysis and/or ASTs.
 
 
 ### Smarter Merging And Diffing
