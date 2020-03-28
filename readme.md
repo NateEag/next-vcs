@@ -422,7 +422,10 @@ https://news.ycombinator.com/item?id=9343021
 
 A lovely summary of what Git's missing for enterprise work, courtesy of someone
 at Perforce:
+https://web.archive.org/web/20150503044832/https://www.perforce.com/blog/140211/how-git-could-grow-enterprise-scm-system
+(originally hosted at
 https://www.perforce.com/blog/140211/how-git-could-grow-enterprise-scm-system
+but has disappeared since)
 
 This chat between ESR and the author of monotone was interesting:
 http://www.catb.org/esr/writings/version-control/version-control.html#graydon
