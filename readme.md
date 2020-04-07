@@ -95,12 +95,19 @@ A few examples:
   checked.
 
 * There should be an easier way to say "I want to break a commit into multiple
-  commits" than this: https://stackoverflow.com/a/6217314/1128957, and
-  similarly I would love a simple way to say "add this patch to an older commit
-  in my private branch", something less undiscoverable, rebase-centric, and
-  funky than `--autosquash` (I think I want a command that looks like `git
-  squash <into-ref> [<source-ref>]`, where if <source-ref> is not passed the
-  staged patch is squashed into it).
+  commits" than this: https://stackoverflow.com/a/6217314/1128957
+
+* I would love a simple way to say "add this patch to an older commit in my
+  private branch", something more discoverable and straightforward than
+  `--autosquash` (I think I want a command that looks like `git squash
+  <into-ref> [<source-ref>]`, where if <source-ref> is not passed the staged
+  patch is squashed into it). Note that the simplest way to do this in practice
+  with Git is to make a commit with your to-be-squashed changes,
+  stash|wip-commit any unrelated work, then do an interactive rebase and squash
+  by hand (finding and duplicating the recent commit's subject line is not
+  really easier to my view - I suppose autosquash is meant for use with many
+  small commits and an eventual large rebase to put everything together, but
+  that doesn't fit my brain)
 
 * It took me quite a few readings of the rebase manpage to even grok its most
   basic usage when I first learned about it. The concept is a bit subtle, but
@@ -167,8 +174,7 @@ https://stackoverflow.com/a/4909267/1128957), and it probably doesn't supply
 all the features people want (e.g. ACL on subdirectories). If I recall
 correctly, it doesn't handle the biggest reason people want this feature, which
 is to just plain *not have* the directories you didn't check out on disk
-anywhere (including your VCS metadata). Again, for monorepos you need that (and
-you also need the aforementioned)
+anywhere (including your VCS metadata). Again, for monorepos you need that.
 
 
 ## Ideal VCS Features
