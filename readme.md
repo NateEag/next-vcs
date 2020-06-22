@@ -96,6 +96,25 @@ the kind of merge happening, which could make things better or worse, I guess.
 Couldn't find them in a quick search, though.
 
 
+## Commit Identifiers
+
+Git's hashes-for-commit-IDs are at its core, and they're a good idea.
+
+Centralized systems, though, don't have to use hashes. At least not for commits
+merged into the main line of development on the main server. I believe
+Mercurial actually has support for 'optional' monotonic commit IDs on the main
+central branch.
+
+Arguably it's a bad plan to support monotonic IDs on the main line of
+development when most commits and branches will not have such IDs. I'm not sure
+I'd include them myself.
+
+That said, Git should really have thought up-front about supporting a more
+future-proof hash algorithm than SHA-1. Using a multihash variant for commit
+IDs might have been smart, perhaps one that results in more-human-friendly
+hashes (see discussion here: https://news.ycombinator.com/item?id=23577746).
+
+
 ### Newline Handling
 
 Its handling of Windows and Linux newline characters is poor. At least it was
