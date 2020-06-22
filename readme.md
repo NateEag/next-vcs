@@ -521,7 +521,10 @@ Git, CVS, Subversion, Mercurial (rarely), CA SCM (it's horrible)
 
 ## VCSes I Am Vaguely Aware Of
 
-monotone, darcs, bazaar, BitKeeper, Perforce, Fossil
+monotone, darcs, bazaar, BitKeeper, Perforce, Fossil, bitkeeper (someone on HN
+said it is OSS now and has solved a lot of pain points for orgs that wind up
+with a centralized repo in practice:
+https://news.ycombinator.com/item?id=23582580)
 
 
 ## VCSes I Know Only The Names Of
