@@ -138,7 +138,7 @@ A few examples:
   the manpage is inscrutable.
 
 * Instead of *documenting* that you shouldn't rewrite pushed history, why not
-  *remember* that I rewrote it and warn me if I try? Similarly, if I just
+  *remember* that I pushed it and warn me if I try? Similarly, if I just
   rewrote a shared branch, it should warn me if I then try to merge the old
   commits from the remote - I almost certainly didn't mean to do that [saw this
   happen to a rebase newbie recently].
