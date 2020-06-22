@@ -72,6 +72,30 @@ Its CLI is inconsistent, confusing, and hard to remember. Highlights include:
   you're usually in the reflog especially as a newbie]).
 
 
+### Conflict Resolution
+
+Compared to Subversion and some other systems I've used, Git is great at
+conflict resolution.
+
+However, it could still be a lot more helpful.
+
+WebStorm has a much better conflict resolution UI built-in than Git does. A VCS
+should have a great, graphical resolver built-in, and use it when no default
+mergetool is defined. If the user has not defined a merge tool explicitly, then
+the default conflict resolution GUI should start automatically on conflicts and
+have a friendly wizard walkthrough on how to resolve conflicts. Once you're
+ready to turn that off.
+
+And of course the naming of "theirs" vs. "ours" is infuriating, as which you're
+actually dealing with can get really confusing during rebases. Oh, and the
+difference between the "recursive" merge strategy with the "ours" option as
+opposed to the "ours" merge strategy. The UI for all this is awful.
+
+I believe there are actually changes to support different labels depending on
+the kind of merge happening, which could make things better or worse, I guess.
+Couldn't find them in a quick search, though.
+
+
 ### Newline Handling
 
 Its handling of Windows and Linux newline characters is poor. At least it was
