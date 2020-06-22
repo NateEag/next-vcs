@@ -219,6 +219,11 @@ correctly, it doesn't handle the biggest reason people want this feature, which
 is to just plain *not have* the directories you didn't check out on disk
 anywhere (including your VCS metadata). Again, for monorepos you need that.
 
+Amendment - in 2.19.0, Git [started growing support for a `partial-clone`
+command](https://git-scm.com/docs/partial-clone), and it's been slowly
+improving that since. Looks like it might become what I want in the next year
+or three.
+
 
 ## Ideal VCS Features
 
