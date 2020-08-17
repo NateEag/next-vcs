@@ -1,2 +1,7 @@
 - Review gitless and consider integrating it into my git workflows. It looks
   like it might improve the git experience somewhat. https://gitless.com/
+
+- Review askgit. It lets you use SQL to interact with a git repository's
+  metadata, which I wouldn't have thought to try, but it is an interesting UX
+  thought, and could certainly be useful.
+  https://willschenk.com/articles/2020/using_askgit/
