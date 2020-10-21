@@ -524,6 +524,13 @@ Git has historically just ignored.
 Git, CVS, Subversion, Mercurial (rarely), CA SCM (it's horrible)
 
 
+## VCS UIs To Check Out
+
+[bit](https://github.com/chriswalz/bit) is a nifty-looking layer on top of git.
+I can't imagine it's as good as [magit](https://magit.vc/) (which is my daily
+driver), but it looks like it has some cool ideas.
+
+
 ## VCSes I Am Vaguely Aware Of
 
 monotone, darcs, bazaar, BitKeeper, Perforce, Fossil, gitless, bitkeeper
