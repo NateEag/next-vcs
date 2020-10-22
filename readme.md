@@ -331,7 +331,9 @@ While they're way closer than in many previous VCSes, Git's branches are
 actually still second-class compared with, say, commits or tags, as noted
 elsewhere in this doc:
 
-- You are expected to delete them after merge
+- You are expected to delete them after merge (which it doesn't even have the
+  grace to do for you - Bob pointed out that it really should [`git branch
+  --merged` and a post-pull hook could do that])
 
 - They [do not support shared description metadata](https://stackoverflow.com/a/8858853/1128957)
 
