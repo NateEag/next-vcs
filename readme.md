@@ -427,6 +427,39 @@ And with my hypothetical logical conflict detector, I suppose you could
 automatically unapprove a rebase that might introduce a change in semantics.
 
 
+### Remember, Cache, and Share Record Of Commits To Skip When Bisecting
+
+git-bisect is an awesome tool.
+
+Sometimes it fails to be *quite* as awesome as it could be, when you land on
+commits that won't build or which break a bunch of tests. You have to manually
+punt and move to another commit.
+
+Some teams introduce heavy-duty process constraints like "No commit may be
+merged that breaks the build or breaks any tests," because they love being able
+to have git bisect automatically tell them when a commit under review
+introduces regressions.
+
+The VCS should support storing commit metadata about bisecting - whether a
+commit breaks the build entirely, as well as a list of tests it's known to
+break.
+
+If your repo contains a build script, you could have your CI/CD pipeline notify
+your VCS about commits that break the build (and should therefore be skipped in
+a bisect) and tagging them thusly for you (when it has no higher-priority jobs
+to do).
+
+Humans should be able to tag commits in the same way, of course, interactively.
+That metadata could be lazy-loaded from the central repo as needed during a
+bisect. You could even recruit developer machines as nodes to do that
+background processing to generate commit metadata.
+
+Pretty sure this idea could use more refinement, but I think the core of it is
+useful and interesting.
+
+I think it would be feasible to teach it to detect failed tests, too.
+
+
 ## Git-based POC?
 
 I think these ideas, once better defined, could be proofed out with git annex +
