@@ -72,6 +72,30 @@ Its CLI is inconsistent, confusing, and hard to remember. Highlights include:
   you're usually in the reflog especially as a newbie]).
 
 
+### Annotating Commits With Arbitrary Structured Metadata
+
+Git does have some support for this by way of the 'git notes' command. That's
+better than a lot of VCSes do, but what little I know about them makes me
+suspect they aren't great for this purpose.
+
+* Notes are not pushed by default. That means third-party tooling to make them
+  do the right thing for any uses.
+
+* You have to tell Git whether you want notes to follow commit rewrites or not.
+  Seems to me like that should be information stored in the note's own
+  metadata, rather than something it's up to each user to configure correctly.
+
+* Notes seem to be aimed at having additional information displayed in git
+  log's output, so it probably takes extra work to distinguish between "this is
+  meant for a human to see by default when reading logs" and "this is meant for
+  tools to work with."
+
+* You can only have one note per commit/namespace pair, which means if multiple
+  systems want to store structured information in notes, they either have to
+  avoid namespace collisions, or agree on a mechanism for coordinating access /
+  encoding data in a single note.
+
+
 ### Conflict Resolution
 
 Compared to Subversion and some other systems I've used, Git is great at
