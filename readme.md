@@ -265,7 +265,7 @@ easier to build power tools for doing stupid VCS tricks like history rewrites.
 
 Git has no concept of file locking.
 
-File locking is stupid if your format is merge-friendly and diffable.
+File locking is questionable if your format is merge-friendly and diffable.
 
 If it is not, about the best thing you can do is say "warning; I'm working on
 this."
@@ -512,6 +512,13 @@ active research:
 https://git-annex.branchable.com/todo/smudge/
 
 
+## Useful Articles About VCS Usage Generally
+
+https://mikkel.ca/blog/git-is-my-buddy-effective-solo-developer/ - some great
+insights into how to use git effectively. Has some particularly useful insights
+into commit hygiene and rewriting branches as you go.
+
+
 ## Other People's Thoughts
 
 I am definitely not the first person to express the idea that the ideal VCS has
@@ -550,6 +557,9 @@ Someone who put some decent thought into this:
 http://tonsky.me/blog/reinventing-git-interface/
 
 Someone who actually built a layer on top of git: http://gitless.com/
+
+Legit adds a few commands to git intended to make it easier for humans to use.
+https://frostming.github.io/legit/
 
 And Microsoft announced a VFS for git, so that actual files can be fetched only
 as needed:
