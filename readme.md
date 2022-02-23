@@ -595,6 +595,11 @@ Git, CVS, Subversion, Mercurial (rarely), CA SCM (it's horrible)
 
 ## VCS UIs To Check Out
 
+[jj](https://github.com/martinvonz/jj) looks like a really solid piece of work
+in terms of making git more usable and learnable. I might just give it a try as
+my daily driver, since it seems like a significant improvement on git in many
+ways but appears to be backwards-compatible.
+
 [bit](https://github.com/chriswalz/bit) is a nifty-looking layer on top of git.
 I can't imagine it's as good as [magit](https://magit.vc/) (which is my daily
 driver), but it looks like it has some cool ideas.
