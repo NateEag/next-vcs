@@ -284,7 +284,7 @@ VCS sees a change to one (it should warn you it did so and offer you the chance
 to undo/unlock it). Furthermore, distributed VCSes would offer the locking
 mechanisms you actually want - if you know someone left for the day and just
 locked things by accident, you can leave a sticky note on their desk and ignore
-the lock. The VCS can just do that for you.
+the lock. The VCS can leave that note for you.
 
 These are less "locks" and more automatic warnings if someone else starts
 editing an unmergeable file. Note that gitolite has implemented this (though
@@ -303,20 +303,6 @@ someone else is currently changing internals in".
 
 That would be so sweet.
 
-Wonder if it would be possible to use [LSP
-backends](https://langserver.org/) as infrastructure to magically get support
-for diffing and merging arbitrary languages? Probably wouldn't quite work, but
-it's the germ of an idea. With the right language-agnostic API this is possible
-- whether that API already exists is the unknown for me here.
-[tree-sitter](https://tree-sitter.github.io/tree-sitter/) is probably the right
-basis for this, and in fact [difftastic](https://github.com/Wilfred/difftastic)
-is a first cut at doing exactly that job.
-
-[This paper on comparing Git's diff
-algorithms](https://link.springer.com/article/10.1007/s10664-019-09772-z) has a
-bibliography well worth mining - it has pointers to several papers on advanced
-diffing engines, some based on language analysis and/or ASTs.
-
 
 ### Smarter Merging And Diffing
 
@@ -333,6 +319,25 @@ I don't recall seeing general-case OSS tools for this.
 
 This obviously should use the same language-awareness plumbing I proposed for
 the smarter layer on top of the file locking system above.
+
+Wonder if it would be possible to use [LSP
+backends](https://langserver.org/) as infrastructure to magically get support
+for diffing and merging arbitrary languages? Probably wouldn't quite work, but
+it's the germ of an idea. With the right language-agnostic API this is possible
+- whether that API already exists is the unknown for me here.
+[tree-sitter](https://tree-sitter.github.io/tree-sitter/) is probably the right
+basis for this, and in fact [difftastic](https://github.com/Wilfred/difftastic)
+is a project that does exactly this to handle diffing.
+
+[This paper on comparing Git's diff
+algorithms](https://link.springer.com/article/10.1007/s10664-019-09772-z) has a
+bibliography well worth mining - it has pointers to several papers on advanced
+diffing engines, some based on language analysis and/or ASTs.
+
+I just realized that the proper name for a tool that handles the
+syntax-aware merging side of this equation is obviously `synmergey`.
+
+...I'm so sorry. It had to be done.
 
 
 ### BitTorrent As Transport
