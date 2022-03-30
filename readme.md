@@ -104,11 +104,11 @@ conflict resolution.
 However, it could still be a lot more helpful.
 
 WebStorm has a much better conflict resolution UI built-in than Git does. A VCS
-should have a great, graphical resolver built-in, and use it when no default
-mergetool is defined. If the user has not defined a merge tool explicitly, then
-the default conflict resolution GUI should start automatically on conflicts and
-have a friendly wizard walkthrough on how to resolve conflicts. Once you're
-ready to turn that off.
+should have a great, graphical resolver built-in, and use it when no merge tool
+is explictly configured. If the user has not defined a merge tool explicitly,
+then the default conflict resolution GUI should start automatically on
+conflicts and have a friendly wizard walkthrough on how to resolve conflicts.
+Once you're ready to turn that off, you can do so.
 
 And of course the naming of "theirs" vs. "ours" is infuriating, as which you're
 actually dealing with can get really confusing during rebases. Oh, and the
@@ -308,6 +308,9 @@ backends](https://langserver.org/) as infrastructure to magically get support
 for diffing and merging arbitrary languages? Probably wouldn't quite work, but
 it's the germ of an idea. With the right language-agnostic API this is possible
 - whether that API already exists is the unknown for me here.
+[tree-sitter](https://tree-sitter.github.io/tree-sitter/) is probably the right
+basis for this, and in fact [difftastic](https://github.com/Wilfred/difftastic)
+is a first cut at doing exactly that job.
 
 [This paper on comparing Git's diff
 algorithms](https://link.springer.com/article/10.1007/s10664-019-09772-z) has a
@@ -317,8 +320,8 @@ diffing engines, some based on language analysis and/or ASTs.
 
 ### Smarter Merging And Diffing
 
-It's perfectly possible to teach your VCS how to merge custom file formats.
-Pretty sure Git already supports it.
+It's perfectly possible to teach your VCS how to merge custom file formats. Git
+already supports it.
 
 So, a really *good* VCS would ship with smart merging and diffing engines for
 major programming languages (and maybe even other file formats - images, at
