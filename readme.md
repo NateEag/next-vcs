@@ -5,21 +5,24 @@ daily work.
 
 Git is my current default choice for the many things it gets right, but I
 believe it has many superficial flaws (which could be solved with a little
-effort) and some fundamental flaws (which by definition would be much harder to
-fix).
+effort) and some fundamental flaws (which by definition would be harder to fix,
+though in recent years it has made strides towards improving those).
 
 It is my belief that a significantly better version control system is possible.
 If the one I want is out there, I haven't found it so far.
 
-I'm particularly curious as to whether a design is possible that can handle
-large and unmergeable files better than git does, while retaining the many
-things git does wonderfully with source code.
+I'm particularly curious as to whether a design is possible that fundamentally
+privileges the "canonical central repo" on the surface and as the standard,
+default configuration, while still supporting Git-style distributed mechanisms
+under the hood.
 
-I would like, therefore, to think about what such a VCS might look like.
+I would also like a system that handles large and unmergeable files better than
+git does, while retaining the many things git does wonderfully with source
+code.
 
-If you know of one that sounds like a good fit, *please* let me know. I love
-discovering amazing new tools. PlasticSCM sounds interesting, but I know no one
-who has actually used it, and it is closed source.
+If you know of an open-source SCM that meets those criteria, *please* let me
+know. I love discovering amazing new tools. PlasticSCM sounds interesting, but
+I know no one who has actually used it, and it is closed source.
 
 
 ## Things Git Does Well
@@ -69,7 +72,8 @@ Its CLI is inconsistent, confusing, and hard to remember. Highlights include:
   usual GC operations would eventually clean it up if you don't need to dig it
   out of the reflog-equivalent a day later [further idea - the default reflog
   view should show you just states you threw out, as getting those back is why
-  you're usually in the reflog especially as a newbie]).
+  you're usually in the reflog especially as a newbie - maybe call that 'git
+  trashcan']).
 
 
 ### Annotating Commits With Arbitrary Structured Metadata
@@ -166,19 +170,14 @@ A few examples:
 
 * I would love a simple way to say "add this patch to an older commit in my
   private branch", something more discoverable and straightforward than
-  `--autosquash` (I think I want a command that looks like `git squash
-  <into-ref> [<source-ref>]`, where if <source-ref> is not passed the staged
-  patch is squashed into it). Note that the simplest way to do this in practice
-  with Git is to make a commit with your to-be-squashed changes,
-  stash|wip-commit any unrelated work, then do an interactive rebase and squash
-  by hand (finding and duplicating the recent commit's subject line is not
-  really easier to my view - I suppose autosquash is meant for use with many
-  small commits and an eventual large rebase to put everything together, but
-  that doesn't fit my brain)
+  `--fixup` / `--autosquash` (I think I want a command that looks like `git
+  squash <into-ref> [<source-ref>]`, where if <source-ref> is not passed the
+  staged patch is squashed into it). Magit's instant fixup behavior is pretty
+  great, and is more or less what I wish git itself had built in.
 
 * It took me quite a few readings of the rebase manpage to even grok its most
   basic usage when I first learned about it. The concept is a bit subtle, but
-  the manpage is inscrutable.
+  the manpage is (was?) inscrutable.
 
 * Instead of *documenting* that you shouldn't rewrite pushed history, why not
   *remember* that I pushed it and warn me if I try? Similarly, if I just
@@ -430,6 +429,24 @@ it in your local sandbox instance of the service discovery system, so your
 other sandboxes know to point at it by default).
 
 
+### Built-In Repo Settings
+
+Git is, well, too distributed in how it handles certain configuration and
+client options.
+
+From a highly-trusted, centralized server, much as I want hooks to be installed
+after clones/pulls/rebases/etc, I also want any number of VCS configurations to
+be installed automatically.
+
+Yes, many things can be put into files in the repo (`.gitattributes` et al),
+but not all settings can - things that would wind up in `.git/`,
+`~/.gitconfig'`, or similar require user intervention to get there.
+
+Conceptually an answer to the hook problem lets you solve this, but you'd want
+to be careful to make the UX nice and smooth. It would not be hard to
+technically support this but do so in an annoyingly clumsy manner.
+
+
 ### Handling Cryptographic Signatures
 
 Linus and some other experts disagree on how cryptographic signatures should be
@@ -455,8 +472,13 @@ Guess if you want that policy you could require all root trees in a branch to
 be approved. A different way to say that is "each individual patch in a merge
 request must be approved".
 
-And with my hypothetical logical conflict detector, I suppose you could
+And with my hypothetical semantic conflict detector, I suppose you could
 automatically unapprove a rebase that might introduce a change in semantics.
+That would be pretty darned cool.
+
+...I guess really all rebases and merges should check for semantic conflicts
+and warn you if they're possible (i.e., if any abstractions you've used have
+undergone a change since you last merged/rebased).
 
 
 ### Remember, Cache, and Share Record Of Commits To Skip When Bisecting
@@ -615,9 +637,9 @@ driver), but it looks like it has some cool ideas.
 
 ## VCSes I Am Vaguely Aware Of
 
-monotone, darcs, bazaar, BitKeeper, Perforce, Fossil, gitless, bitkeeper
-(someone on HN said it is OSS now and has solved a lot of pain points for orgs
-that wind up with a centralized repo in practice:
+monotone, darcs, bazaar, Perforce, Fossil, gitless, bitkeeper (someone on HN
+said it is OSS now and has solved a lot of pain points for orgs that wind up
+with a centralized repo in practice:
 https://news.ycombinator.com/item?id=23582580)
 
 
