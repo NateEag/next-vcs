@@ -172,8 +172,10 @@ A few examples:
   private branch", something more discoverable and straightforward than
   `--fixup` / `--autosquash` (I think I want a command that looks like `git
   squash <into-ref> [<source-ref>]`, where if <source-ref> is not passed the
-  staged patch is squashed into it). Magit's instant fixup behavior is pretty
-  great, and is more or less what I wish git itself had built in.
+  staged patch is squashed into it - or maybe I just want
+  [git-absorb](https://github.com/tummychow/git-absorb), which sounds like it's
+  even nicer than what I was thinking of). Magit's instant fixup behavior is
+  pretty great, and is more or less what I wish git itself had built in.
 
 * It took me quite a few readings of the rebase manpage to even grok its most
   basic usage when I first learned about it. The concept is a bit subtle, but
@@ -195,7 +197,7 @@ A few examples:
   private, your local checkout should treat it as 'possibly shared').
 
 * git push --force-with-lease should be the default behavior, since for history
-  that's not yet canonical, it's the right thing. History that's not yet
+  that's not yet - canonical, it's the right thing. History that's not yet
   canonical is, of course, the 'private' branch idea I was whining about above.
   Git doesn't have them, but it's possible to sort of hack in protected
   branches by pre-receive hooks (and a private branch is almost like an
@@ -624,6 +626,11 @@ Git, CVS, Subversion, Mercurial (rarely), CA SCM (it's horrible)
 
 
 ## VCS UIs To Check Out
+
+[Sapling](https://engineering.fb.com/2022/11/15/open-source/sapling-source-control-scalable/)
+is an open-source Mercurial client fork from Facebook. It can interface with
+Git repos, and sounds like it has some really nice new features. I should spend
+a few months with it as a client to get a sense of how well it actually works.
 
 [jj](https://github.com/martinvonz/jj) looks like a really solid piece of work
 in terms of making git more usable and learnable. I might just give it a try as
