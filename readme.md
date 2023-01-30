@@ -657,6 +657,10 @@ A patch-based VCS a la darcs that might be interesting: https://pijul.org/
 Got is an OpenBSD-specific VCS that appears to be a reimagining of Git, based
 on the core datastructures: http://gameoftrees.org/
 
+jamsync is a interesting-sounding rsync-based VCS: https://jamsync.dev/about,
+which I discovered from discussion on HN:
+https://news.ycombinator.com/item?id=34439461
+
 
 ## License
 
