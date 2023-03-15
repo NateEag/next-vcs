@@ -53,6 +53,21 @@ new workflows you'd never have tried otherwise).
 
 ## Things Git Does Poorly
 
+### Get Main Branch / Canonical Remote
+
+Because Git is really, fundamentally distributed, answering the question
+"What's the main repo? What's the main branch?" can't be done in a reliable,
+robust, automated manner. It's literally a matter of perspective.
+
+That's a deeply insightful commentary on the nature of distributed systems and
+consensus, but at the end of the day most teams *do* have a canonical repo and
+a main branch within it.
+
+So, in practice, it'd be mighty convenient to support flagging a specific
+remote as canonical, so tooling scripts can just blindly query "main repo /
+branch".
+
+
 ### Big Files
 
 It's very slow when dealing with huge files, especially a lot of them that
