@@ -60,8 +60,8 @@ Because Git is really, fundamentally distributed, answering the question
 robust, automated manner. It's literally a matter of perspective.
 
 That's a deeply insightful commentary on the nature of distributed systems and
-consensus, but at the end of the day most teams *do* have a canonical repo and
-a main branch within it.
+consensus embedded into the software's design, but at the end of the day most
+teams *do* have a canonical repo and a main branch within it.
 
 So, in practice, it'd be mighty convenient to support flagging a specific
 remote as canonical, so tooling scripts can just blindly query "main repo /
