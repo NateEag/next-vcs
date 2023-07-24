@@ -437,7 +437,7 @@ not set, interactively ask permission to do whatever it wants when a repo
 specifies a post-clone hook.
 
 That way, workplace repositories and the like could kick off sandbox setup
-immediately after the clone, instead of requiring you two run two commands.
+immediately after the clone, instead of requiring you to run two commands.
 
 That may sound silly and pedantic, but it would make standardizing project
 setup massively easier in SOAs a la Amazon - checking out the project *gets*
@@ -582,9 +582,9 @@ https://blogs.janestreet.com/centralizing-distributed-version-control-revisited/
 http://www.ianbicking.org/distributed-vs-centralized-scm.html
 
 This HN discussion of GitHub's LFS announcement was mildly informative (mostly
-it was just people yelling about "why didn't you just use git-annex?"). I'm
-curious to learn what a 'Merkle tree' is, which someone mentioned in
-association with rolling hashes for storing large binary files:
+it was just people yelling "why didn't you just use git-annex?"). I'm curious
+to learn what a 'Merkle tree' is, which someone mentioned in association with
+rolling hashes for storing large binary files:
 https://news.ycombinator.com/item?id=9343021
 
 A lovely summary of what Git's missing for enterprise work, courtesy of someone
