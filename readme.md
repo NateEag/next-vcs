@@ -648,6 +648,9 @@ other). It certainly would increase expense and difficulty to support monorepo,
 though, as you have to deal with a lot of complexity and scaling issues that
 Git has historically just ignored.
 
+git-stack is a tool for managing sets of dependent changes more elegantly than
+git-rebase natively supports: https://github.com/gitext-rs/git-stack
+
 
 ## VCSes I Have Used
 
