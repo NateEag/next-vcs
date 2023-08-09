@@ -356,6 +356,20 @@ syntax-aware merging side of this equation is obviously `synmergey`.
 ...I'm so sorry. It had to be done.
 
 
+### Automatic Notifications Of Upstream Semantics Changes
+
+GitHub has a handy feature for keeping an eye on your upstream dependencies
+- RSS feeds for specific files and folders. If you know exactly what you depend
+on in a larger project, subscribing makes it easier to be aware of changes that
+impact your project.
+
+A VCS with built-in language intelligence should be able to offer feeds for
+changes to semantic abstractions, distinguishing between changes that impact
+its interface and ones that do not.
+
+It would be a heavy lift to build, but I think it could be really useful.
+
+
 ### BitTorrent As Transport
 
 So, you have a distributed VCS. Wouldn't it be nice if you could use BitTorrent
