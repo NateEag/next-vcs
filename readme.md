@@ -336,12 +336,7 @@ I don't recall seeing general-case OSS tools for this.
 This obviously should use the same language-awareness plumbing I proposed for
 the smarter layer on top of the file locking system above.
 
-Wonder if it would be possible to use [LSP
-backends](https://langserver.org/) as infrastructure to magically get support
-for diffing and merging arbitrary languages? Probably wouldn't quite work, but
-it's the germ of an idea. With the right language-agnostic API this is possible
-- whether that API already exists is the unknown for me here.
-[tree-sitter](https://tree-sitter.github.io/tree-sitter/) is probably the right
+[tree-sitter](https://tree-sitter.github.io/tree-sitter/) could be the right
 basis for this, and in fact [difftastic](https://github.com/Wilfred/difftastic)
 is a project that does exactly this to handle diffing.
 
