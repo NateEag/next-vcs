@@ -684,7 +684,11 @@ https://news.ycombinator.com/item?id=23582580)
 
 ## VCSes I Know Only The Names Of
 
-A patch-based VCS a la darcs that might be interesting: https://pijul.org/
+[Pijul](https://pijul.org/) is a patch-based VCS a la darcs that might be
+interesting. That said, this comment on HN has the ring of truth to me:
+https://news.ycombinator.com/item?id=37095838 (and the rest of the thread is
+worth reading too).
+
 
 Got is an OpenBSD-specific VCS that appears to be a reimagining of Git, based
 on the core datastructures: http://gameoftrees.org/
