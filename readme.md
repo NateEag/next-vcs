@@ -612,22 +612,14 @@ https://www.reddit.com/r/programming/comments/2xxb17/git_is_actually_ok_for_some
 Someone who put some decent thought into this:
 http://tonsky.me/blog/reinventing-git-interface/
 
-Someone who actually built a layer on top of git: http://gitless.com/
-
-Legit adds a few commands to git intended to make it easier for humans to use.
-https://frostming.github.io/legit/
-
-And Microsoft announced a VFS for git, so that actual files can be fetched only
-as needed:
+And Microsoft built a VFS for git, so that actual files can be fetched only as
+needed:
 https://blogs.msdn.microsoft.com/visualstudioalm/2017/02/03/announcing-gvfs-git-virtual-file-system/
 
 The HN discussion of that release had many interesting comments, including
 someone who said that v6 of git annex is almost invisible, needing only a 'git
 annex sync' command that could probably be hidden via hook.
 https://news.ycombinator.com/item?id=13559662
-
-A lengthy thread on HN about why Fossil's author doesn't like Git:
-https://news.ycombinator.com/item?id=16806114
 
 A few different people have talked about monorepos vs. many repos. Some
 articles I found thought-provoking:
@@ -643,13 +635,22 @@ other). It certainly would increase expense and difficulty to support monorepo,
 though, as you have to deal with a lot of complexity and scaling issues that
 Git has historically just ignored.
 
+A lengthy thread on HN about why Fossil's author doesn't like Git:
+https://news.ycombinator.com/item?id=16806114
+
+
+## Prior Art
+
+Someone who actually built a layer on top of git: http://gitless.com/
+
+Legit adds a few commands to git intended to make it easier for humans to use.
+https://frostming.github.io/legit/
+
 git-stack is a tool for managing sets of dependent changes more elegantly than
 git-rebase natively supports: https://github.com/gitext-rs/git-stack
 
 A clever way to speed up rebasing when upstream is hundreds or thousands of
-commits ahead:
-
-https://gist.github.com/nicowilliams/ea2fa2b445c2db50d2ee6509c3526297#file-bisect-rebase-sh-L77
+commits ahead: https://gist.github.com/nicowilliams/ea2fa2b445c2db50d2ee6509c3526297#file-bisect-rebase-sh-L77
 
 
 ## VCSes I Have Used
