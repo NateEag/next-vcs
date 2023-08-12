@@ -652,6 +652,9 @@ git-rebase natively supports: https://github.com/gitext-rs/git-stack
 A clever way to speed up rebasing when upstream is hundreds or thousands of
 commits ahead: https://gist.github.com/nicowilliams/ea2fa2b445c2db50d2ee6509c3526297#file-bisect-rebase-sh-L77
 
+Semantic patches are an interesting concept and I should probably read the
+related paper: https://coccinelle.gitlabpages.inria.fr/website/sp.html
+
 
 ## VCSes I Have Used
 
