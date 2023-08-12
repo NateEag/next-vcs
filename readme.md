@@ -646,6 +646,11 @@ Git has historically just ignored.
 git-stack is a tool for managing sets of dependent changes more elegantly than
 git-rebase natively supports: https://github.com/gitext-rs/git-stack
 
+A clever way to speed up rebasing when upstream is hundreds or thousands of
+commits ahead:
+
+https://gist.github.com/nicowilliams/ea2fa2b445c2db50d2ee6509c3526297#file-bisect-rebase-sh-L77
+
 
 ## VCSes I Have Used
 
