@@ -338,7 +338,11 @@ the smarter layer on top of the file locking system above.
 
 [tree-sitter](https://tree-sitter.github.io/tree-sitter/) could be the right
 basis for this, and in fact [difftastic](https://github.com/Wilfred/difftastic)
-is a project that does exactly this to handle diffing.
+is a project that does exactly this to handle diffing. Note also
+[graphtage](https://github.com/trailofbits/graphtage),
+[gumtree](https://github.com/GumTreeDiff/gumtree), and
+[SemanticDiff](https://semanticdiff.com/), all of which are attempts to solve
+slightly different aspects of the syntactically-aware diff problem.
 
 [This paper on comparing Git's diff
 algorithms](https://link.springer.com/article/10.1007/s10664-019-09772-z) has a
