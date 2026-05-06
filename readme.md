@@ -354,6 +354,11 @@ syntax-aware merging side of this equation is obviously `synmergey`.
 
 ...I'm so sorry. It had to be done.
 
+[mergiraf](https://mergiraf.org/) is a TreeSitter-based merge driver for git and
+friends ([started in
+2024](https://codeberg.org/mergiraf/mergiraf/commit/bdc28440ca846e799412cd341f2517a50bdf6026),
+so I haven't missed having it for _too_ long).
+
 
 ### Automatic Notifications Of Upstream Semantics Changes
 
